@@ -397,24 +397,75 @@ img { max-width: 100%; height: auto; display: block; }
     grid-template-columns: 1fr 1fr;
 }
 .featured-img {
-    background: linear-gradient(135deg, var(--navy-mid) 0%, var(--navy) 100%);
+    background: var(--navy);
     min-height: 360px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Carousel */
+.carousel {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 360px;
+}
+.carousel-track {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+.carousel-track img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+.carousel-track img.active {
+    opacity: 1;
+}
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 3;
+    background: rgba(255,255,255,0.9);
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: rgba(255,255,255,0.7);
-    font-size: 1rem;
-    padding: 2.5rem;
-    text-align: center;
-    position: relative;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    transition: background var(--transition), transform var(--transition);
+    color: var(--navy);
 }
-.featured-img-placeholder {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.75rem;
+.carousel-btn:hover {
+    background: var(--white);
+    transform: translateY(-50%) scale(1.08);
 }
-.featured-img-placeholder svg { opacity: 0.5; }
+.carousel-prev { left: 12px; }
+.carousel-next { right: 12px; }
+.carousel-counter {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    z-index: 3;
+    background: rgba(15,29,47,0.75);
+    color: var(--white);
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.3rem 0.7rem;
+    border-radius: 6px;
+    backdrop-filter: blur(4px);
+    letter-spacing: 0.03em;
+}
 .featured-details { padding: 2.5rem; display: flex; flex-direction: column; justify-content: center; }
 .featured-badge {
     display: inline-block;
@@ -709,7 +760,8 @@ img { max-width: 100%; height: auto; display: block; }
     .about-credentials { justify-content: center; }
     .services-grid { grid-template-columns: 1fr; }
     .featured-listing { grid-template-columns: 1fr; }
-    .featured-img { min-height: 220px; }
+    .featured-img { min-height: 260px; }
+    .carousel { min-height: 260px; }
     .contact-grid { grid-template-columns: 1fr; }
     .areas-grid { grid-template-columns: repeat(2, 1fr); }
     .nav-desktop { display: none; }

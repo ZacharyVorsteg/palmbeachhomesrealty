@@ -267,9 +267,30 @@
                 </div>
                 <div class="featured-listing fade-in">
                     <div class="featured-img">
-                        <div class="featured-img-placeholder">
-                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-                            <p>Property Photo Coming Soon</p>
+                        <div class="carousel" id="listing-carousel">
+                            <div class="carousel-track">
+                                <img src="https://ap.rdcpix.com/e7d2fe55b4808d03a2527aa01cad77cfl-m121179352rd-w1280_h960.webp" alt="Seminole Gardens Townhome — exterior view" loading="eager">
+                                <img src="https://ap.rdcpix.com/e7d2fe55b4808d03a2527aa01cad77cfl-m1413732401rd-w1280_h960.webp" alt="Seminole Gardens Townhome — interior" loading="lazy">
+                                <img src="https://ap.rdcpix.com/e7d2fe55b4808d03a2527aa01cad77cfl-m1413791461rd-w1280_h960.webp" alt="Seminole Gardens Townhome — living area" loading="lazy">
+                                <img src="https://ap.rdcpix.com/e7d2fe55b4808d03a2527aa01cad77cfl-m1476030748rd-w1280_h960.webp" alt="Seminole Gardens Townhome — kitchen" loading="lazy">
+                                <img src="https://ap.rdcpix.com/e7d2fe55b4808d03a2527aa01cad77cfl-m1565251712rd-w1280_h960.webp" alt="Seminole Gardens Townhome — bedroom" loading="lazy">
+                                <img src="https://ap.rdcpix.com/e7d2fe55b4808d03a2527aa01cad77cfl-m1933236005rd-w1280_h960.webp" alt="Seminole Gardens Townhome — bathroom" loading="lazy">
+                                <img src="https://ap.rdcpix.com/e7d2fe55b4808d03a2527aa01cad77cfl-m2373532011rd-w1280_h960.webp" alt="Seminole Gardens Townhome — additional view" loading="lazy">
+                                <img src="https://ap.rdcpix.com/e7d2fe55b4808d03a2527aa01cad77cfl-m2531182701rd-w1280_h960.webp" alt="Seminole Gardens Townhome — additional view" loading="lazy">
+                                <img src="https://ap.rdcpix.com/e7d2fe55b4808d03a2527aa01cad77cfl-m2761140230rd-w1280_h960.webp" alt="Seminole Gardens Townhome — additional view" loading="lazy">
+                                <img src="https://ap.rdcpix.com/e7d2fe55b4808d03a2527aa01cad77cfl-m2890654778rd-w1280_h960.webp" alt="Seminole Gardens Townhome — additional view" loading="lazy">
+                                <img src="https://ap.rdcpix.com/e7d2fe55b4808d03a2527aa01cad77cfl-m3312654775rd-w1280_h960.webp" alt="Seminole Gardens Townhome — additional view" loading="lazy">
+                                <img src="https://ap.rdcpix.com/e7d2fe55b4808d03a2527aa01cad77cfl-m3433677653rd-w1280_h960.webp" alt="Seminole Gardens Townhome — additional view" loading="lazy">
+                                <img src="https://ap.rdcpix.com/e7d2fe55b4808d03a2527aa01cad77cfl-m3460004677rd-w1280_h960.webp" alt="Seminole Gardens Townhome — additional view" loading="lazy">
+                                <img src="https://ap.rdcpix.com/e7d2fe55b4808d03a2527aa01cad77cfl-m3790805931rd-w1280_h960.webp" alt="Seminole Gardens Townhome — additional view" loading="lazy">
+                            </div>
+                            <button class="carousel-btn carousel-prev" aria-label="Previous photo" onclick="carouselNav(-1)">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+                            </button>
+                            <button class="carousel-btn carousel-next" aria-label="Next photo" onclick="carouselNav(1)">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg>
+                            </button>
+                            <div class="carousel-counter"><span id="carousel-current">1</span> / <span id="carousel-total">14</span></div>
                         </div>
                     </div>
                     <div class="featured-details">
@@ -457,6 +478,28 @@
             els.forEach(function(el) { el.classList.add('visible'); });
         }
     })();
+
+    /* Listing carousel */
+    var carouselIdx = 0;
+    var carouselImgs = document.querySelectorAll('#listing-carousel .carousel-track img');
+    var carouselTotal = carouselImgs.length;
+    function carouselNav(dir) {
+        carouselImgs[carouselIdx].classList.remove('active');
+        carouselIdx = (carouselIdx + dir + carouselTotal) % carouselTotal;
+        carouselImgs[carouselIdx].classList.add('active');
+        document.getElementById('carousel-current').textContent = carouselIdx + 1;
+    }
+    if (carouselImgs.length) {
+        carouselImgs[0].classList.add('active');
+        /* Swipe support */
+        var carousel = document.getElementById('listing-carousel');
+        var touchStartX = 0;
+        carousel.addEventListener('touchstart', function(e) { touchStartX = e.touches[0].clientX; }, {passive: true});
+        carousel.addEventListener('touchend', function(e) {
+            var diff = touchStartX - e.changedTouches[0].clientX;
+            if (Math.abs(diff) > 40) carouselNav(diff > 0 ? 1 : -1);
+        }, {passive: true});
+    }
 
     /* Form handler */
     function handleSubmit(e) {
