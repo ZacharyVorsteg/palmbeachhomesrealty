@@ -41,9 +41,14 @@
     <meta name="author" content="Zachary Vorsteg">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
     <!-- Styles -->
-    <link rel="preload" href="styles.css?v=1" as="style">
-    <link rel="stylesheet" href="styles.css?v=1">
+    <link rel="preload" href="styles.css?v=2" as="style">
+    <link rel="stylesheet" href="styles.css?v=2">
 
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
@@ -101,7 +106,7 @@
     <header class="header">
         <div class="header-container">
             <a href="/" class="logo">
-                <span class="brand-name">Palm Beach Homes Realty</span>
+                <span class="brand-name">Palm Beach Homes <span class="brand-accent">Realty</span></span>
             </a>
             <nav class="nav-desktop">
                 <a href="/" class="active">Home</a>
@@ -111,11 +116,11 @@
                 <a href="#contact">Contact</a>
             </nav>
             <div class="header-cta">
-                <a href="tel:561-718-6725" class="phone-btn">
-                    <svg class="phone-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                <a href="tel:561-718-6725" class="phone-link">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
                     <span>561-718-6725</span>
                 </a>
-                <button class="cta-button" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Get Started</button>
+                <button class="btn-header" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Get Started</button>
             </div>
         </div>
     </header>
@@ -124,189 +129,268 @@
         <!-- Hero -->
         <section class="hero">
             <div class="hero-inner">
-                <h1>Find Your Next Home in <span>Palm Beach County</span></h1>
-                <p>Condos, townhomes, single-family homes, and luxury estates from Jupiter to Boca Raton. Whether you're buying, selling, or renting — get expert guidance and free buyer representation.</p>
+                <span class="hero-label">Palm Beach County Real Estate</span>
+                <h1>Find Your Next Home in<br><span class="accent">Palm Beach County</span></h1>
+                <p class="hero-sub">From beachfront condos to luxury estates — expert guidance for buyers, sellers, and investors across Palm Beach County. Free buyer representation.</p>
                 <div class="hero-cta">
-                    <a href="#contact" class="btn-primary" onclick="event.preventDefault();document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Start Your Search</a>
-                    <a href="tel:561-718-6725" class="btn-secondary">Call 561-718-6725</a>
+                    <a href="#contact" class="btn-gold" onclick="event.preventDefault();document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                        Start Your Search
+                    </a>
+                    <a href="tel:561-718-6725" class="btn-outline">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                        Call 561-718-6725
+                    </a>
                 </div>
-                <div class="hero-trust">
-                    <span>&#10003; Licensed FL Sales Associate</span>
-                    <span>&#10003; Free Buyer Representation</span>
-                    <span>&#10003; Cornerstone Realty Inc</span>
+                <div class="hero-stats">
+                    <div class="hero-stat">
+                        <span class="hero-stat-value">8+</span>
+                        <span class="hero-stat-label">Cities Served</span>
+                    </div>
+                    <div class="hero-stat">
+                        <span class="hero-stat-value">Free</span>
+                        <span class="hero-stat-label">Buyer Representation</span>
+                    </div>
+                    <div class="hero-stat">
+                        <span class="hero-stat-value">FL Licensed</span>
+                        <span class="hero-stat-label">Sales Associate</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About / Agent -->
+        <section class="about" id="about">
+            <div class="about-grid fade-in">
+                <div class="about-photo">
+                    <img src="assets/headshot.jpg" alt="Zach Vorsteg — Licensed Real Estate Sales Associate, Palm Beach County" width="280" height="280" loading="lazy">
+                </div>
+                <div class="about-content">
+                    <span class="about-label">Your Agent</span>
+                    <h2>Zach Vorsteg</h2>
+                    <p>I'm a licensed real estate sales associate with Cornerstone Realty, serving all of Palm Beach County. Whether you're buying your first condo in Delray, selling a family home in Jupiter, or eyeing a waterfront estate in Palm Beach Gardens — I provide honest guidance, full-service representation, and free buyer agency.</p>
+                    <p>I know this market inside and out. From pricing strategy to closing logistics, I handle the details so you can focus on what matters — finding the right home.</p>
+                    <div class="about-credentials">
+                        <div class="credential">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                            FL License #SL3603483
+                        </div>
+                        <div class="credential">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                            Cornerstone Realty Inc
+                        </div>
+                        <div class="credential">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                            Palm Beach County
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- Services -->
-        <div class="section-alt" id="services">
-            <div class="section">
-                <div class="section-header">
+        <section class="section section--cream" id="services">
+            <div class="section-inner">
+                <div class="section-header fade-in">
+                    <span class="section-label">Services</span>
                     <h2>How I Can Help</h2>
                     <p>Full-service residential real estate across Palm Beach County</p>
                 </div>
                 <div class="services-grid">
-                    <div class="service-card">
-                        <div class="service-icon">&#127968;</div>
+                    <div class="service-card fade-in">
+                        <div class="service-icon">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                        </div>
                         <h3>Buying a Home</h3>
                         <p>Free buyer representation. I search the full MLS, negotiate on your behalf, and guide you from offer to closing. Condos, townhomes, single-family, and estates.</p>
                     </div>
-                    <div class="service-card">
-                        <div class="service-icon">&#128176;</div>
+                    <div class="service-card fade-in">
+                        <div class="service-icon">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                        </div>
                         <h3>Selling Your Home</h3>
-                        <p>Strategic pricing, professional marketing, and expert negotiation to get you top dollar. Full MLS exposure plus targeted digital marketing to qualified buyers.</p>
+                        <p>Strategic pricing, professional marketing, and expert negotiation to get you top dollar. Full MLS exposure plus targeted digital campaigns to qualified buyers.</p>
                     </div>
-                    <div class="service-card">
-                        <div class="service-icon">&#128196;</div>
+                    <div class="service-card fade-in">
+                        <div class="service-icon">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                        </div>
                         <h3>Rentals</h3>
-                        <p>Find your next rental home or list your property for rent. I handle tenant screening, lease negotiation, and placement for landlords and renters across the county.</p>
+                        <p>Find your next rental or list your property for rent. I handle tenant screening, lease negotiation, and placement for landlords and renters across the county.</p>
                     </div>
-                    <div class="service-card">
-                        <div class="service-icon">&#128200;</div>
+                    <div class="service-card fade-in">
+                        <div class="service-icon">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                        </div>
                         <h3>Market Analysis</h3>
-                        <p>Get a free comparative market analysis for your home or neighborhood. Data-driven pricing and market trend reports to help you make informed decisions.</p>
+                        <p>Free comparative market analysis for your home or neighborhood. Data-driven pricing and market trend reports to help you make confident decisions.</p>
                     </div>
-                    <div class="service-card">
-                        <div class="service-icon">&#128269;</div>
+                    <div class="service-card fade-in">
+                        <div class="service-icon">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                        </div>
                         <h3>First-Time Buyers</h3>
                         <p>Buying your first home can be overwhelming. I walk you through every step — pre-approval, home search, inspections, and closing. No question is too small.</p>
                     </div>
-                    <div class="service-card">
-                        <div class="service-icon">&#127793;</div>
+                    <div class="service-card fade-in">
+                        <div class="service-icon">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+                        </div>
                         <h3>Investment Properties</h3>
-                        <p>Identify high-return residential investment opportunities across Palm Beach County. Rental income analysis, cap rate evaluation, and portfolio strategy.</p>
+                        <p>Identify high-return residential investment opportunities. Rental income analysis, cap rate evaluation, and portfolio strategy across Palm Beach County.</p>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
 
         <!-- Featured Listing -->
-        <section class="section" id="listings">
-            <div class="section-header">
-                <h2>Featured Listing</h2>
-                <p>New to market in Palm Beach County</p>
-            </div>
-            <div class="featured-listing">
-                <div class="featured-img">
-                    <div>
-                        <p style="font-size:3rem;margin-bottom:0.5rem;">&#127968;</p>
-                        <p>Property Photo Coming Soon</p>
-                    </div>
+        <section class="section section--white" id="listings">
+            <div class="section-inner">
+                <div class="section-header fade-in">
+                    <span class="section-label">Featured</span>
+                    <h2>Featured Listing</h2>
+                    <p>New to market in Palm Beach County</p>
                 </div>
-                <div class="featured-details">
-                    <span class="featured-badge">For Sale</span>
-                    <h3>Seminole Gardens Townhome</h3>
-                    <div class="featured-price">$405,000</div>
-                    <div class="featured-meta">
-                        <span>3 Bed</span>
-                        <span>2.5 Bath</span>
-                        <span>Riviera Beach, FL</span>
+                <div class="featured-listing fade-in">
+                    <div class="featured-img">
+                        <div class="featured-img-placeholder">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                            <p>Property Photo Coming Soon</p>
+                        </div>
                     </div>
-                    <p>Move-in ready townhome near the beach. Open floor plan, modern finishes, and a two-car garage. Minutes from Blue Heron Blvd and I-95. HOA covers exterior maintenance, roof, and insurance.</p>
-                    <a href="#contact" class="btn-primary" onclick="event.preventDefault();document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Schedule a Tour</a>
+                    <div class="featured-details">
+                        <span class="featured-badge">For Sale</span>
+                        <h3>Seminole Gardens Townhome</h3>
+                        <div class="featured-price">$405,000</div>
+                        <div class="featured-meta">
+                            <span>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7v11a2 2 0 002 2h14"/><path d="M3 7h18v4H3z"/><path d="M7 11v6"/><path d="M11 11v6"/></svg>
+                                3 Bed
+                            </span>
+                            <span>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12h16a1 1 0 011 1v3a1 1 0 01-1 1H4a1 1 0 01-1-1v-3a1 1 0 011-1z"/><path d="M6 12V5a2 2 0 012-2h3a2 2 0 012 2v7"/></svg>
+                                2.5 Bath
+                            </span>
+                            <span>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                                Riviera Beach
+                            </span>
+                        </div>
+                        <p>Move-in ready townhome near the beach. Open floor plan, modern finishes, and a two-car garage. Minutes from Blue Heron Blvd and I-95. HOA covers exterior maintenance, roof, and insurance.</p>
+                        <a href="#contact" class="btn-dark" onclick="event.preventDefault();document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+                            Schedule a Tour
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- Areas Served -->
-        <div class="section-alt" id="areas">
-            <div class="section">
-                <div class="section-header">
+        <section class="section section--cream" id="areas">
+            <div class="section-inner">
+                <div class="section-header fade-in">
+                    <span class="section-label">Coverage</span>
                     <h2>Areas We Serve</h2>
                     <p>Residential real estate across all of Palm Beach County</p>
                 </div>
                 <div class="areas-grid">
-                    <div class="area-card">
+                    <div class="area-card fade-in">
                         <h3>West Palm Beach</h3>
                         <p>Downtown, Northwood, SoSo, Flamingo Park</p>
                     </div>
-                    <div class="area-card">
+                    <div class="area-card fade-in">
                         <h3>Boca Raton</h3>
                         <p>East Boca, West Boca, Boca Del Mar</p>
                     </div>
-                    <div class="area-card">
+                    <div class="area-card fade-in">
                         <h3>Delray Beach</h3>
                         <p>Atlantic Ave, Pineapple Grove, Lake Ida</p>
                     </div>
-                    <div class="area-card">
+                    <div class="area-card fade-in">
                         <h3>Boynton Beach</h3>
                         <p>Marina Village, Canyon Lakes, Leisureville</p>
                     </div>
-                    <div class="area-card">
+                    <div class="area-card fade-in">
                         <h3>Jupiter</h3>
                         <p>Abacoa, Jupiter Inlet, Indiantown Rd</p>
                     </div>
-                    <div class="area-card">
+                    <div class="area-card fade-in">
                         <h3>Palm Beach Gardens</h3>
                         <p>PGA Blvd, The Gardens, Mirasol</p>
                     </div>
-                    <div class="area-card">
+                    <div class="area-card fade-in">
                         <h3>Wellington</h3>
                         <p>Equestrian estates, Olympia, Wellington Green</p>
                     </div>
-                    <div class="area-card">
+                    <div class="area-card fade-in">
                         <h3>Lake Worth Beach</h3>
                         <p>Downtown, Cultural district, College Park</p>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
 
         <!-- Contact -->
-        <section class="section" id="contact">
-            <div class="section-header">
-                <h2>Get in Touch</h2>
-                <p>Tell me what you're looking for and I'll get back to you within hours</p>
-            </div>
-            <div class="contact-grid">
-                <div class="contact-info">
-                    <h3>Zach Vorsteg</h3>
-                    <p>Licensed real estate sales associate with Cornerstone Realty Inc, serving all of Palm Beach County. Whether you're buying your first condo, selling a family home, or looking for a luxury estate — I provide honest guidance and full-service representation.</p>
-                    <div class="contact-detail">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-                        <a href="tel:561-718-6725">561-718-6725</a>
-                    </div>
-                    <div class="contact-detail">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-                        <a href="mailto:zach@palmbeachhomesrealty.com">zach@palmbeachhomesrealty.com</a>
-                    </div>
-                    <div class="license-info">
-                        <strong>Zachary Vorsteg</strong> &mdash; Licensed Real Estate Sales Associate<br>
-                        Florida License #SL3603483<br>
-                        Cornerstone Realty Inc &mdash; Palm Beach County, FL
-                    </div>
+        <section class="section section--white" id="contact">
+            <div class="section-inner">
+                <div class="section-header fade-in">
+                    <span class="section-label">Contact</span>
+                    <h2>Let's Find Your Home</h2>
+                    <p>Tell me what you're looking for and I'll get back to you within hours</p>
                 </div>
-                <form class="contact-form" id="lead-form" onsubmit="handleSubmit(event)">
-                    <h3>Tell Me What You Need</h3>
-                    <div class="form-group">
-                        <label for="name">Full Name</label>
-                        <input type="text" id="name" name="name" required autocomplete="name" placeholder="Jane Smith">
+                <div class="contact-grid">
+                    <div class="contact-info fade-in">
+                        <h3>Work With Zach</h3>
+                        <p>Whether you're buying your first condo, selling a family home, or looking for a luxury waterfront estate — I provide honest guidance and full-service representation. No pressure, no games.</p>
+                        <div class="contact-detail">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                            <a href="tel:561-718-6725">561-718-6725</a>
+                        </div>
+                        <div class="contact-detail">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                            <a href="mailto:zach@palmbeachhomesrealty.com">zach@palmbeachhomesrealty.com</a>
+                        </div>
+                        <div class="license-info">
+                            <strong>Zachary Vorsteg</strong> &mdash; Licensed Real Estate Sales Associate<br>
+                            Florida License #SL3603483<br>
+                            Cornerstone Realty Inc &mdash; Palm Beach County, FL
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required autocomplete="email" placeholder="jane@example.com">
-                    </div>
-                    <div class="form-group">
-                        <label for="phone">Phone</label>
-                        <input type="tel" id="phone" name="phone" autocomplete="tel" placeholder="561-555-1234">
-                    </div>
-                    <div class="form-group">
-                        <label for="interest">I'm Looking To</label>
-                        <select id="interest" name="interest">
-                            <option value="buy">Buy a home</option>
-                            <option value="sell">Sell my home</option>
-                            <option value="rent">Find a rental</option>
-                            <option value="invest">Invest in property</option>
-                            <option value="other">Something else</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Details (optional)</label>
-                        <textarea id="message" name="message" rows="3" placeholder="Neighborhoods, budget, bedrooms, timeline..."></textarea>
-                    </div>
-                    <button type="submit" class="form-submit">Send Message</button>
-                    <p class="form-note">No spam. I'll respond personally within a few hours.</p>
-                </form>
+                    <form class="contact-form fade-in" id="lead-form" onsubmit="handleSubmit(event)">
+                        <h3>Tell Me What You Need</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Full Name</label>
+                                <input type="text" id="name" name="name" required autocomplete="name" placeholder="Jane Smith">
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone</label>
+                                <input type="tel" id="phone" name="phone" autocomplete="tel" placeholder="561-555-1234">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required autocomplete="email" placeholder="jane@example.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="interest">I'm Looking To</label>
+                            <select id="interest" name="interest">
+                                <option value="buy">Buy a home</option>
+                                <option value="sell">Sell my home</option>
+                                <option value="rent">Find a rental</option>
+                                <option value="invest">Invest in property</option>
+                                <option value="other">Something else</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Details (optional)</label>
+                            <textarea id="message" name="message" rows="3" placeholder="Neighborhoods, budget, bedrooms, timeline..."></textarea>
+                        </div>
+                        <button type="submit" class="form-submit">Send Message</button>
+                        <p class="form-note">No spam. I'll respond personally within a few hours.</p>
+                    </form>
+                </div>
             </div>
         </section>
     </main>
@@ -317,24 +401,24 @@
                 <h3>Palm Beach Homes Realty</h3>
                 <p>Residential real estate services across Palm Beach County, FL. Buying, selling, and renting homes from Jupiter to Boca Raton.</p>
             </div>
-            <div class="footer-links">
+            <div class="footer-col">
                 <h4>Services</h4>
                 <a href="#services">Buy a Home</a>
                 <a href="#services">Sell Your Home</a>
                 <a href="#services">Find a Rental</a>
                 <a href="#services">Market Analysis</a>
             </div>
-            <div class="footer-links">
+            <div class="footer-col">
                 <h4>Areas</h4>
                 <a href="#areas">West Palm Beach</a>
                 <a href="#areas">Boca Raton</a>
                 <a href="#areas">Delray Beach</a>
                 <a href="#areas">Jupiter</a>
             </div>
-            <div class="footer-links">
+            <div class="footer-col">
                 <h4>Contact</h4>
                 <a href="tel:561-718-6725">561-718-6725</a>
-                <a href="mailto:zach@palmbeachhomesrealty.com">Email</a>
+                <a href="mailto:zach@palmbeachhomesrealty.com">Email Zach</a>
             </div>
         </div>
         <div class="footer-bottom">
@@ -344,6 +428,23 @@
     </footer>
 
     <script>
+    /* Fade-in on scroll */
+    (function() {
+        var els = document.querySelectorAll('.fade-in');
+        if (!els.length) return;
+        if ('IntersectionObserver' in window) {
+            var obs = new IntersectionObserver(function(entries) {
+                entries.forEach(function(e) {
+                    if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+                });
+            }, { threshold: 0.15 });
+            els.forEach(function(el) { obs.observe(el); });
+        } else {
+            els.forEach(function(el) { el.classList.add('visible'); });
+        }
+    })();
+
+    /* Form handler */
     function handleSubmit(e) {
         e.preventDefault();
         var form = e.target;
@@ -362,11 +463,10 @@
         };
 
         // TODO: Wire to backend endpoint
-        // For now, show success and log
         console.log('Lead submission:', data);
         setTimeout(function() {
             btn.textContent = 'Message Sent!';
-            btn.style.background = '#38a169';
+            btn.style.background = '#2d7a4f';
             form.reset();
             setTimeout(function() {
                 btn.textContent = origText;
