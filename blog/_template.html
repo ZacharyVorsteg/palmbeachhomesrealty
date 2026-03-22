@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{TITLE}} - Palm Beach Homes Realty</title>
+  <meta name="description" content="{{DESCRIPTION}}">
+  <meta name="keywords" content="{{KEYWORDS}}">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://palmbeachhomesrealty.com/blog/{{SLUG}}/">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="{{TITLE}}">
+  <meta property="og:description" content="{{DESCRIPTION}}">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://palmbeachhomesrealty.com/blog/{{SLUG}}/">
+  <meta property="og:image" content="https://palmbeachhomesrealty.com/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="{{TITLE}}">
+  <meta property="og:site_name" content="Palm Beach Homes Realty">
+  <meta property="og:locale" content="en_US">
+  <meta property="article:published_time" content="{{DATE}}">
+  <meta property="article:author" content="Zachary Vorsteg">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{TITLE}}">
+  <meta name="twitter:description" content="{{DESCRIPTION}}">
+  <meta name="twitter:image" content="https://palmbeachhomesrealty.com/og-image.jpg">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --green-50: #ecfdf5;
+      --green-100: #d1fae5;
+      --green-200: #a7f3d0;
+      --green-600: #059669;
+      --green-700: #047857;
+      --green-800: #065f46;
+      --gray-50: #f9fafb;
+      --gray-100: #f3f4f6;
+      --gray-200: #e5e7eb;
+      --gray-300: #d1d5db;
+      --gray-400: #9ca3af;
+      --gray-500: #6b7280;
+      --gray-600: #4b5563;
+      --gray-700: #374151;
+      --gray-800: #1f2937;
+      --gray-900: #111827;
+      --white: #ffffff;
+      --radius-lg: 12px;
+      --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1);
+      --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--gray-700);
+      line-height: 1.6;
+      background: var(--white);
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Header */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--gray-200);
+    }
+
+    .header .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--gray-900);
+    }
+
+    .logo-mark {
+      width: 36px;
+      height: 36px;
+      background: var(--green-600);
+      color: var(--white);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 0.8rem;
+    }
+
+    .header-nav {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .header-nav a {
+      text-decoration: none;
+      color: var(--gray-600);
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .header-nav a:hover { color: var(--green-600); }
+
+    .btn {
+      display: inline-block;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn-primary {
+      background: var(--green-600);
+      color: var(--white);
+    }
+
+    .btn-primary:hover { background: var(--green-700); }
+
+    .btn-secondary {
+      background: var(--green-50);
+      color: var(--green-700);
+      border: 1px solid var(--green-200);
+    }
+
+    .btn-secondary:hover { background: var(--green-100); }
+
+    .btn-large { padding: 14px 28px; font-size: 1rem; }
+
+    /* Breadcrumb */
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.9rem;
+      color: var(--gray-600);
+      margin-bottom: 24px;
+      padding-top: 100px;
+    }
+
+    .breadcrumb a {
+      color: var(--green-600);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .breadcrumb a:hover { color: var(--green-700); }
+    .breadcrumb-separator { color: var(--gray-400); }
+
+    /* Article */
+    .article-header {
+      margin-bottom: 40px;
+      border-bottom: 1px solid var(--gray-200);
+      padding-bottom: 32px;
+    }
+
+    .article-title {
+      font-size: clamp(1.75rem, 5.5vw, 2.5rem);
+      font-weight: 800;
+      color: var(--gray-900);
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+
+    .article-description {
+      font-size: 1.1rem;
+      color: var(--gray-600);
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .article-meta {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      font-size: 0.9rem;
+      color: var(--gray-600);
+    }
+
+    .article-meta-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .article-pillar {
+      display: inline-block;
+      background: var(--green-100);
+      color: var(--green-600);
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    .article-content {
+      max-width: 720px;
+      margin: 0 auto;
+      font-size: 1rem;
+      line-height: 1.8;
+      color: var(--gray-700);
+    }
+
+    .article-content h2 {
+      font-size: clamp(1.5rem, 4vw, 1.8rem);
+      font-weight: 700;
+      color: var(--gray-900);
+      margin: 48px 0 24px 0;
+      line-height: 1.2;
+    }
+
+    .article-content h2:first-child { margin-top: 0; }
+
+    .article-content h3 {
+      font-size: clamp(1.1rem, 3vw, 1.35rem);
+      font-weight: 700;
+      color: var(--gray-900);
+      margin: 32px 0 16px 0;
+    }
+
+    .article-content p { margin-bottom: 20px; }
+
+    .article-content ul,
+    .article-content ol {
+      margin-bottom: 20px;
+      padding-left: 24px;
+    }
+
+    .article-content li {
+      margin-bottom: 12px;
+      line-height: 1.8;
+    }
+
+    .article-content a {
+      color: var(--green-600);
+      text-decoration: underline;
+      transition: color 0.2s;
+    }
+
+    .article-content a:hover { color: var(--green-700); }
+
+    .article-content blockquote {
+      border-left: 3px solid var(--green-600);
+      padding: 16px 20px;
+      color: var(--gray-600);
+      font-style: italic;
+      margin: 24px 0;
+      background: var(--green-50);
+      border-radius: 0 8px 8px 0;
+    }
+
+    .article-content blockquote p:last-child { margin-bottom: 0; }
+
+    .table-scroll {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      margin: 24px 0;
+      border-radius: 8px;
+    }
+
+    .article-content table {
+      width: 100%;
+      min-width: 500px;
+      border-collapse: collapse;
+      font-size: 0.95rem;
+    }
+
+    .article-content th {
+      background: var(--gray-100);
+      color: var(--gray-800);
+      padding: 12px;
+      text-align: left;
+      font-weight: 600;
+      border-bottom: 2px solid var(--gray-200);
+    }
+
+    .article-content td {
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--gray-200);
+    }
+
+    .article-content tr:hover td { background: var(--gray-50); }
+
+    .article-content code {
+      background: var(--gray-100);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: 'Courier New', monospace;
+      font-size: 0.9em;
+    }
+
+    .article-content pre {
+      background: var(--gray-900);
+      color: var(--gray-100);
+      padding: 16px;
+      border-radius: 8px;
+      overflow-x: auto;
+      margin: 24px 0;
+    }
+
+    .article-content pre code { background: none; padding: 0; }
+
+    /* Article Footer */
+    .article-footer {
+      margin-top: 60px;
+      padding-top: 40px;
+      border-top: 1px solid var(--gray-200);
+    }
+
+    .article-cta {
+      background: var(--green-50);
+      border: 1px solid var(--green-100);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .article-cta h3 {
+      font-size: 1.3rem;
+      color: var(--gray-900);
+      margin-bottom: 8px;
+    }
+
+    .article-cta p {
+      color: var(--gray-600);
+      margin-bottom: 20px;
+    }
+
+    /* Related Articles */
+    .related-articles { margin-top: 48px; }
+
+    .related-articles h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--gray-900);
+      margin-bottom: 24px;
+    }
+
+    .related-articles-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    .related-article {
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius-lg);
+      padding: 20px;
+      transition: box-shadow 0.2s;
+    }
+
+    .related-article:hover { box-shadow: var(--shadow-md); }
+
+    .related-article-link {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+
+    .related-article-link h4 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--gray-900);
+      margin-bottom: 8px;
+      transition: color 0.2s;
+    }
+
+    .related-article:hover .related-article-link h4 { color: var(--green-600); }
+    .related-article-date { font-size: 0.85rem; color: var(--gray-500); }
+
+    /* Footer */
+    .footer {
+      background: var(--gray-900);
+      color: var(--gray-400);
+      padding: 40px 0;
+      margin-top: 80px;
+    }
+
+    .footer .container { text-align: center; }
+    .footer p { font-size: 0.85rem; margin-bottom: 8px; }
+
+    .footer .disclaimer {
+      font-size: 0.75rem;
+      color: var(--gray-500);
+      max-width: 700px;
+      margin: 16px auto 0;
+      line-height: 1.5;
+    }
+
+    @media (max-width: 768px) {
+      .article-description { font-size: 1rem; }
+      .article-cta { padding: 24px; }
+      .header-nav { display: none; }
+      .table-scroll { margin: 16px 0; }
+      .article-content table { min-width: 400px; }
+    }
+  </style>
+
+  <!-- Schema: Article -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "{{TITLE}}",
+    "description": "{{DESCRIPTION}}",
+    "datePublished": "{{DATE}}",
+    "author": {
+      "@type": "RealEstateAgent",
+      "name": "Zachary Vorsteg",
+      "worksFor": {
+        "@type": "RealEstateAgent",
+        "name": "Cornerstone Realty"
+      }
+    }
+  }
+  </script>
+
+  <!-- Schema: BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://palmbeachhomesrealty.com" },
+      { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://palmbeachhomesrealty.com/blog/" },
+      { "@type": "ListItem", "position": 3, "name": "{{TITLE}}", "item": "https://palmbeachhomesrealty.com/blog/{{SLUG}}/" }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <header class="header">
+    <div class="container">
+      <a href="/" class="logo">
+        <div class="logo-mark">PBH</div>
+        Palm Beach Homes Realty
+      </a>
+      <nav class="header-nav">
+        <a href="/#listings">Listings</a>
+        <a href="/#about">About</a>
+        <a href="/blog/">Blog</a>
+        <a href="/#contact" class="btn btn-primary">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="/">Home</a>
+        <span class="breadcrumb-separator">/</span>
+        <a href="/blog/">Blog</a>
+        <span class="breadcrumb-separator">/</span>
+        <span>{{TITLE}}</span>
+      </div>
+
+      <article class="article">
+        <header class="article-header">
+          <h1 class="article-title">{{TITLE}}</h1>
+          <p class="article-description">{{DESCRIPTION}}</p>
+          <div class="article-meta">
+            <div class="article-meta-item">
+              <span class="article-pillar">{{PILLAR}}</span>
+            </div>
+            <div class="article-meta-item">
+              <span class="article-date">{{DATE_FORMATTED}}</span>
+            </div>
+            <div class="article-meta-item">
+              <span class="article-read-time">{{READ_TIME}} read</span>
+            </div>
+          </div>
+        </header>
+
+        <div class="article-content">
+          {{CONTENT}}
+        </div>
+
+        <footer class="article-footer">
+          <div class="article-cta">
+            <h3>Thinking About Buying or Selling in Palm Beach County?</h3>
+            <p>Get personalized market insights and a free consultation with a local expert.</p>
+            <a href="/#contact" class="btn btn-primary btn-large">Schedule a Consultation</a>
+          </div>
+
+          <div class="related-articles">
+            <h3>More from {{PILLAR}}</h3>
+            <div class="related-articles-grid">
+              {{RELATED_ARTICLES}}
+            </div>
+          </div>
+        </footer>
+      </article>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 Palm Beach Homes Realty. All rights reserved.</p>
+      <p class="disclaimer">
+        Zachary Vorsteg, Licensed Sales Associate | Cornerstone Realty | License #SL3603483<br>
+        This website is for informational purposes only and does not constitute legal, financial, or real estate advice.
+        Always consult a qualified professional before making real estate decisions. Equal Housing Opportunity.
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>

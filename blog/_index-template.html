@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog - Palm Beach Homes Realty</title>
+  <meta name="description" content="Palm Beach County residential real estate insights — market trends, home buying tips, neighborhood guides, and expert advice from a local agent.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://palmbeachhomesrealty.com/blog/">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Palm Beach Homes Realty Blog">
+  <meta property="og:description" content="Palm Beach County residential real estate insights — market trends, home buying tips, and neighborhood guides.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://palmbeachhomesrealty.com/blog/">
+  <meta property="og:image" content="https://palmbeachhomesrealty.com/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Palm Beach Homes Realty Blog">
+  <meta property="og:site_name" content="Palm Beach Homes Realty">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Palm Beach Homes Realty Blog">
+  <meta name="twitter:description" content="Palm Beach County residential real estate insights — market trends, home buying tips, and neighborhood guides.">
+  <meta name="twitter:image" content="https://palmbeachhomesrealty.com/og-image.jpg">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --green-50: #ecfdf5;
+      --green-100: #d1fae5;
+      --green-200: #a7f3d0;
+      --green-600: #059669;
+      --green-700: #047857;
+      --green-800: #065f46;
+      --gray-50: #f9fafb;
+      --gray-100: #f3f4f6;
+      --gray-200: #e5e7eb;
+      --gray-300: #d1d5db;
+      --gray-400: #9ca3af;
+      --gray-500: #6b7280;
+      --gray-600: #4b5563;
+      --gray-700: #374151;
+      --gray-800: #1f2937;
+      --gray-900: #111827;
+      --white: #ffffff;
+      --radius-lg: 12px;
+      --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1);
+      --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--gray-700);
+      line-height: 1.6;
+      background: var(--white);
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Header */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--gray-200);
+    }
+
+    .header .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--gray-900);
+    }
+
+    .logo-mark {
+      width: 36px;
+      height: 36px;
+      background: var(--green-600);
+      color: var(--white);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 0.8rem;
+    }
+
+    .header-nav {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .header-nav a {
+      text-decoration: none;
+      color: var(--gray-600);
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .header-nav a:hover { color: var(--green-600); }
+
+    .btn {
+      display: inline-block;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn-primary {
+      background: var(--green-600);
+      color: var(--white);
+    }
+
+    .btn-primary:hover { background: var(--green-700); }
+
+    .btn-secondary {
+      background: var(--green-50);
+      color: var(--green-700);
+      border: 1px solid var(--green-200);
+    }
+
+    .btn-secondary:hover { background: var(--green-100); }
+
+    /* Blog Hero */
+    .blog-hero {
+      padding: 140px 0 80px;
+      background: linear-gradient(135deg, var(--green-50) 0%, var(--white) 50%, #f0fdf4 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .blog-hero::before {
+      content: '';
+      position: absolute;
+      top: -200px;
+      right: -200px;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(5,150,105,0.06) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .blog-hero .container {
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .blog-hero h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      color: var(--gray-900);
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+
+    .blog-hero p {
+      font-size: 1.1rem;
+      color: var(--gray-600);
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    /* Blog Posts */
+    .blog-posts { padding: 80px 0; }
+
+    .articles-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 28px;
+      margin-top: 48px;
+    }
+
+    .article-card {
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      transition: all 0.2s;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .article-card:hover {
+      box-shadow: var(--shadow-lg);
+      border-color: var(--green-200);
+      transform: translateY(-2px);
+    }
+
+    .article-card-header { margin-bottom: 16px; }
+
+    .article-card h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--gray-900);
+      line-height: 1.3;
+      margin-bottom: 12px;
+    }
+
+    .article-card h3 a {
+      text-decoration: none;
+      color: inherit;
+      transition: color 0.2s;
+    }
+
+    .article-card:hover h3 a { color: var(--green-600); }
+
+    .article-pillar {
+      display: inline-block;
+      background: var(--green-100);
+      color: var(--green-600);
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+
+    .article-description {
+      font-size: 0.95rem;
+      color: var(--gray-600);
+      line-height: 1.5;
+      margin: 16px 0;
+      flex-grow: 1;
+    }
+
+    .article-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.85rem;
+      color: var(--gray-500);
+      margin-bottom: 16px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--gray-100);
+    }
+
+    .article-card .btn { align-self: flex-start; }
+
+    .blog-count {
+      text-align: center;
+      padding: 40px;
+      background: var(--green-50);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--green-100);
+      margin: 48px 0;
+    }
+
+    .blog-count p {
+      font-size: 0.95rem;
+      color: var(--gray-600);
+    }
+
+    /* Footer */
+    .footer {
+      background: var(--gray-900);
+      color: var(--gray-400);
+      padding: 40px 0;
+      margin-top: 80px;
+    }
+
+    .footer .container { text-align: center; }
+    .footer p { font-size: 0.85rem; margin-bottom: 8px; }
+
+    .footer .disclaimer {
+      font-size: 0.75rem;
+      color: var(--gray-500);
+      max-width: 700px;
+      margin: 16px auto 0;
+      line-height: 1.5;
+    }
+
+    @media (max-width: 768px) {
+      .blog-hero { padding: 100px 0 60px; }
+      .blog-hero h1 { font-size: 2rem; }
+      .blog-hero p { font-size: 1rem; }
+      .articles-grid { grid-template-columns: 1fr; }
+      .header-nav { display: none; }
+    }
+  </style>
+
+  <!-- Schema: Blog -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "Palm Beach Homes Realty Blog",
+    "description": "Palm Beach County residential real estate insights — market trends, home buying tips, and neighborhood guides.",
+    "url": "https://palmbeachhomesrealty.com/blog/",
+    "publisher": {
+      "@type": "RealEstateAgent",
+      "name": "Zachary Vorsteg",
+      "worksFor": {
+        "@type": "RealEstateAgent",
+        "name": "Cornerstone Realty"
+      }
+    }
+  }
+  </script>
+</head>
+<body>
+
+  <header class="header">
+    <div class="container">
+      <a href="/" class="logo">
+        <div class="logo-mark">PBH</div>
+        Palm Beach Homes Realty
+      </a>
+      <nav class="header-nav">
+        <a href="/#listings">Listings</a>
+        <a href="/#about">About</a>
+        <a href="/blog/">Blog</a>
+        <a href="/#contact" class="btn btn-primary">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="blog-hero">
+    <div class="container">
+      <h1>Palm Beach County Real Estate Insights</h1>
+      <p>Market trends, neighborhood guides, and expert advice for homebuyers, sellers, and investors in Palm Beach County.</p>
+    </div>
+  </section>
+
+  <section class="blog-posts">
+    <div class="container">
+      <div class="blog-count">
+        <p>Explore {{ARTICLE_COUNT}} articles on Palm Beach County real estate</p>
+      </div>
+
+      <div class="articles-grid">
+        {{ARTICLE_CARDS}}
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 Palm Beach Homes Realty. All rights reserved.</p>
+      <p class="disclaimer">
+        Zachary Vorsteg, Licensed Sales Associate | Cornerstone Realty | License #SL3603483<br>
+        This website is for informational purposes only and does not constitute legal, financial, or real estate advice.
+        Always consult a qualified professional before making real estate decisions. Equal Housing Opportunity.
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,12 @@
+{
+  "name": "palmbeachhomesrealty",
+  "version": "1.0.0",
+  "description": "Palm Beach Homes Realty - Residential real estate in Palm Beach County",
+  "main": "index.html",
+  "scripts": {
+    "build": "node build-blog.js"
+  },
+  "dependencies": {
+    "marked": "^15.0.0"
+  }
+}
