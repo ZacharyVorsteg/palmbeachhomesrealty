@@ -406,7 +406,7 @@
     </footer>
 
     <script>
-    /* Fade-in on scroll — staggered for polish */
+    /* Fade-in on scroll — triggers early, staggered for polish */
     (function() {
         var els = document.querySelectorAll('.fade-in');
         if (!els.length) return;
@@ -415,7 +415,7 @@
                 entries.forEach(function(e) {
                     if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
                 });
-            }, { threshold: 0.05, rootMargin: '0px 0px -40px 0px' });
+            }, { threshold: 0.01, rootMargin: '200px 0px 0px 0px' });
             els.forEach(function(el, i) {
                 /* Stagger siblings in grids */
                 var siblings = el.parentElement ? el.parentElement.querySelectorAll('.fade-in') : [];
