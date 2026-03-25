@@ -47,8 +47,8 @@
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Styles -->
-    <link rel="preload" href="styles.css?v=4" as="style">
-    <link rel="stylesheet" href="styles.css?v=4">
+    <link rel="preload" href="styles.css?v=5" as="style">
+    <link rel="stylesheet" href="styles.css?v=5">
 
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
@@ -406,7 +406,7 @@
     </footer>
 
     <script>
-    /* Fade-in on scroll */
+    /* Fade-in on scroll — staggered for polish */
     (function() {
         var els = document.querySelectorAll('.fade-in');
         if (!els.length) return;
@@ -415,8 +415,14 @@
                 entries.forEach(function(e) {
                     if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
                 });
-            }, { threshold: 0.15 });
-            els.forEach(function(el) { obs.observe(el); });
+            }, { threshold: 0.05, rootMargin: '0px 0px -40px 0px' });
+            els.forEach(function(el, i) {
+                /* Stagger siblings in grids */
+                var siblings = el.parentElement ? el.parentElement.querySelectorAll('.fade-in') : [];
+                var idx = Array.prototype.indexOf.call(siblings, el);
+                if (idx > 0) el.style.transitionDelay = (idx * 0.08) + 's';
+                obs.observe(el);
+            });
         } else {
             els.forEach(function(el) { el.classList.add('visible'); });
         }
