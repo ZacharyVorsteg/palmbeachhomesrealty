@@ -42,9 +42,10 @@ function getSlug(filename) {
   return filename.replace(/\.md$/, '').toLowerCase().replace(/\s+/g, '-');
 }
 
-// Utility: Format date
+// Utility: Format date (parse as local time to avoid UTC off-by-one)
 function formatDate(dateStr) {
-  const date = new Date(dateStr);
+  const [year, month, day] = String(dateStr).split('-').map(Number);
+  const date = new Date(year, month - 1, day);
   return date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
 }
 

@@ -1,9 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://palmbeachhomesrealty.com/</loc>
-    <lastmod>2026-03-21</lastmod>
+    <loc>https://palmbeachhomesrealty.com</loc>
     <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://palmbeachhomesrealty.com/blog/</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://palmbeachhomesrealty.com/blog/buying-a-condo-in-palm-beach-county-2026/</loc>
+    <lastmod>2026-03-30</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://palmbeachhomesrealty.com/blog/palm-beach-county-first-time-homebuyer-programs-2026/</loc>
+    <lastmod>2026-03-30</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://palmbeachhomesrealty.com/blog/palm-beach-county-flood-insurance-requirements-2026/</loc>
+    <lastmod>2026-03-22</lastmod>
+    <changefreq>monthly</changefreq>
   </url>
 </urlset>
