@@ -66,6 +66,14 @@
     /* === LAYOUT === */
     --max-width: 1160px;
     --max-width-content: 800px;
+
+    /* === SHORTHAND ALIASES === */
+    --navy: var(--navy-900);
+    --gold: var(--gold-500);
+    --gold-hover: var(--gold-600);
+    --navy-mid: var(--navy-850);
+    --radius: var(--radius-md);
+    --border: var(--border-light);
 }
 
 html { scroll-behavior: smooth; }
@@ -161,6 +169,69 @@ img { max-width: 100%; height: auto; display: block; }
     font-family: inherit;
 }
 .btn-header:hover { background: var(--navy-mid); transform: translateY(-1px); }
+
+/* ─── Mobile Navigation ─── */
+.nav-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 0.35rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    z-index: 101;
+}
+.nav-toggle span {
+    display: block;
+    width: 24px;
+    height: 2.5px;
+    background: var(--navy);
+    border-radius: 2px;
+    transition: all var(--transition);
+}
+.nav-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(8px, 8px);
+}
+.nav-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+.nav-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(8px, -8px);
+}
+.nav-mobile {
+    display: none;
+    position: absolute;
+    top: 68px;
+    left: 0;
+    right: 0;
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    flex-direction: column;
+    padding: 1rem 0;
+    max-height: calc(100vh - 68px);
+    overflow-y: auto;
+}
+.nav-mobile.active {
+    display: flex;
+}
+.nav-mobile a {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--text-mid);
+    transition: color var(--transition), background var(--transition);
+    display: block;
+}
+.nav-mobile a:hover, .nav-mobile a.active {
+    color: var(--navy);
+    background: var(--cream);
+}
+@media (max-width: 768px) {
+    .nav-desktop { display: none !important; }
+    .nav-toggle { display: flex !important; }
+    .header-cta { flex-direction: column; gap: 0.5rem; }
+    .phone-link { font-size: 0.85rem; }
+}
 
 /* ─── Hero ─── */
 .hero {

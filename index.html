@@ -148,7 +148,7 @@
             {
                 "@type": "Question",
                 "name": "How quickly do you respond to inquiries?",
-                "acceptedAnswer": { "@type": "Answer", "text": "I guarantee a response within 30 minutes during business hours. Most inquiries receive a call within 10-15 minutes. I don't use assistants or voicemail systems — you speak directly with me." }
+                "acceptedAnswer": { "@type": "Answer", "text": "I aim to respond to inquiries within 30 minutes during business hours when available. Most inquiries receive a call within 10-15 minutes. I don't use assistants or voicemail systems — you speak directly with me." }
             },
             {
                 "@type": "Question",
@@ -181,6 +181,19 @@
                 <span class="brand-name">Palm Beach Homes <span class="brand-accent">Realty</span></span>
             </a>
             <nav class="nav-desktop">
+                <a href="/" class="active">Home</a>
+                <a href="#listings">How It Works</a>
+                <a href="#services">Services</a>
+                <a href="#areas">Areas</a>
+                <a href="/blog/">Blog</a>
+                <a href="#contact">Contact</a>
+            </nav>
+            <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" style="display:none;">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav class="nav-mobile" id="nav-mobile">
                 <a href="/" class="active">Home</a>
                 <a href="#listings">How It Works</a>
                 <a href="#services">Services</a>
@@ -222,7 +235,7 @@
                     </div>
                     <div class="hero-stat">
                         <span class="hero-stat-value">30 Min</span>
-                        <span class="hero-stat-label">Response Guarantee</span>
+                        <span class="hero-stat-label">Response Target</span>
                     </div>
                     <div class="hero-stat">
                         <span class="hero-stat-value">100%</span>
@@ -294,8 +307,8 @@
                     </div>
                     <div class="promise-card fade-in">
                         <div class="promise-number">04</div>
-                        <h3>30-Minute Response</h3>
-                        <p>When a property surfaces that matches your criteria, hours matter. I respond to every inquiry within 30 minutes during business hours. Your time is valuable &mdash; I don't waste it.</p>
+                        <h3>Fast Response</h3>
+                        <p>When a property surfaces that matches your criteria, hours matter. I aim to respond to inquiries within 30 minutes during business hours when available. Your time is valuable &mdash; I don't waste it.</p>
                     </div>
                 </div>
             </div>
@@ -405,8 +418,10 @@
                             Cornerstone Realty Inc &mdash; Palm Beach County, FL
                         </div>
                     </div>
-                    <form class="contact-form fade-in" id="lead-form" onsubmit="handleSubmit(event)">
+                    <form class="contact-form fade-in" id="lead-form" name="lead-form" method="POST" data-netlify="true" netlify-honeypot="bot-field" onsubmit="handleSubmit(event)">
                         <h3>Or Send a Quick Inquiry</h3>
+                        <input type="hidden" name="form-name" value="lead-form">
+                        <input type="hidden" name="bot-field" style="display:none;" aria-hidden="true">
                         <div class="form-group">
                             <label for="phone">Phone (preferred)</label>
                             <input type="tel" id="phone" name="phone" required autocomplete="tel" placeholder="561-555-1234">
@@ -426,13 +441,18 @@
                                 <option value="other">Something else</option>
                             </select>
                         </div>
-                        <button type="submit" class="form-submit">Send &mdash; I'll Call Within 30 Minutes</button>
+                        <button type="submit" class="form-submit">Send &mdash; I'll Call Within 1 Business Day</button>
+                        <div id="form-success" style="display:none; color:#2d7a4f; margin-top:1rem;"><strong>Success!</strong> Your inquiry has been received. I'll be in touch within one business day.</div>
                         <p class="form-note">No spam. No hand-off. You'll hear from me directly.</p>
                     </form>
                 </div>
             </div>
         </section>
     </main>
+
+    <div style="margin-top:2rem; padding-top:1.5rem; padding-bottom:0; border-top:1px solid var(--border-light); font-size:0.85rem; color:var(--text-light); max-width: var(--max-width); margin-left: auto; margin-right: auto; padding-left: 1.5rem; padding-right: 1.5rem;">
+        <p style="margin:0;"><strong>Equal Housing Opportunity.</strong> All properties subject to applicable federal fair housing laws. Zachary Vorsteg is a licensed Real Estate Sales Associate in Florida (License #SL3603483) affiliated with Cornerstone Realty Inc.</p>
+    </div>
 
     <footer class="footer">
         <div class="footer-inner">
@@ -468,6 +488,28 @@
     </footer>
 
     <script>
+    /* Mobile navigation toggle */
+    (function() {
+        var toggle = document.getElementById('nav-toggle');
+        var navMobile = document.getElementById('nav-mobile');
+        var navLinks = navMobile.querySelectorAll('a');
+
+        if (toggle) {
+            toggle.addEventListener('click', function(e) {
+                e.preventDefault();
+                toggle.classList.toggle('active');
+                navMobile.classList.toggle('active');
+            });
+
+            navLinks.forEach(function(link) {
+                link.addEventListener('click', function() {
+                    toggle.classList.remove('active');
+                    navMobile.classList.remove('active');
+                });
+            });
+        }
+    })();
+
     /* Fade-in on scroll — triggers early, staggered for polish */
     (function() {
         var els = document.querySelectorAll('.fade-in');
@@ -490,34 +532,42 @@
         }
     })();
 
-    /* Form handler */
+    /* Form handler — Netlify Forms integration */
     function handleSubmit(e) {
         e.preventDefault();
         var form = e.target;
         var btn = form.querySelector('.form-submit');
+        var successMsg = form.querySelector('#form-success');
         var origText = btn.textContent;
         btn.textContent = 'Sending...';
         btn.disabled = true;
 
-        var data = {
-            email: form.email.value.trim(),
-            phone: form.phone.value.trim(),
-            interest: form.interest.value,
-            source: 'palmbeachhomesrealty.com'
-        };
+        var formData = new FormData(form);
 
-        // TODO: Wire to backend endpoint
-        console.log('Lead submission:', data);
-        setTimeout(function() {
-            btn.textContent = 'Message Sent!';
-            btn.style.background = '#2d7a4f';
-            form.reset();
+        fetch('/index.html', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: new URLSearchParams(formData)
+        })
+        .then(function(response) {
+            if (response.ok) {
+                btn.style.display = 'none';
+                successMsg.style.display = 'block';
+                form.reset();
+            } else {
+                throw new Error('Network response was not ok');
+            }
+        })
+        .catch(function(error) {
+            console.error('Form submission error:', error);
+            btn.textContent = 'Error sending. Please call 561-718-6725.';
+            btn.style.background = '#dc2626';
             setTimeout(function() {
                 btn.textContent = origText;
                 btn.style.background = '';
                 btn.disabled = false;
-            }, 3000);
-        }, 800);
+            }, 4000);
+        });
     }
     </script>
 </body>
