@@ -230,11 +230,20 @@ img { max-width: 100%; height: auto; display: block; }
     background: var(--cream);
     border-left-color: var(--gold);
 }
-@media (max-width: 768px) {
+@media (max-width: 1080px) {
     .nav-desktop { display: none !important; }
     .nav-toggle { display: flex !important; }
+}
+@media (max-width: 768px) {
     .header-cta { flex-direction: column; gap: 0.5rem; }
     .phone-link { font-size: 0.85rem; }
+}
+/* tighten nav at mid widths so the CTA always breathes */
+@media (min-width: 1081px) and (max-width: 1280px) {
+    .nav-desktop { gap: 1.15rem; }
+    .nav-desktop a { font-size: 0.84rem; }
+    .header-cta { gap: 0.7rem; }
+    .btn-header { padding: 0.55rem 1rem; }
 }
 
 /* ─── Hero ─── */
