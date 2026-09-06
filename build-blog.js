@@ -170,8 +170,9 @@ function build() {
   // Generate index
   generateIndex(articles);
 
-  // Update sitemap
+  // Update sitemap and RSS from the same published article list.
   updateSitemap(articles);
+  generateFeed(articles);
 
   console.log(`\n✓ Built ${articles.length} articles`);
 }
@@ -242,6 +243,28 @@ ${articleEntries}
 
   fs.writeFileSync(SITEMAP_OUTPUT, sitemap);
   console.log('✓ sitemap.xml');
+}
+
+// RSS preserves article publication dates and uses canonical article URLs.
+function generateFeed(articles) {
+  const xml = (value) => String(value).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&apos;');
+  const items = articles.map((article) => {
+    const published = new Date(`${article.date}T00:00:00Z`);
+    if (Number.isNaN(published.getTime()) || published.toISOString().slice(0, 10) !== article.date) {
+      throw new Error(`Invalid RSS publication date: ${article.slug}`);
+    }
+    const url = `${SITE_URL}/blog/${article.slug}/`;
+    return `<item><title>${xml(article.title)}</title><link>${xml(url)}</link><guid isPermaLink="true">${xml(url)}</guid><description>${xml(article.description)}</description><pubDate>${published.toUTCString()}</pubDate></item>`;
+  }).join('\n');
+  const feed = `<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel>
+<title>Palm Beach Homes Realty Blog</title><link>${SITE_URL}/blog/</link>
+<description>Residential real estate articles for Palm Beach County.</description><language>en-US</language>
+<atom:link href="${SITE_URL}/blog/feed.xml" rel="self" type="application/rss+xml"/>
+${items}
+</channel></rss>`;
+  fs.writeFileSync(path.join(BLOG_OUTPUT, 'feed.xml'), feed);
+  console.log('✓ blog/feed.xml');
 }
 
 // Main
