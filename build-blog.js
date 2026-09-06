@@ -98,7 +98,8 @@ function build() {
     }
 
     const slug = getSlug(file);
-    let htmlContent = marked(content);
+    // strip a leading body H1: the template renders its own <h1> from the title (BLOG-SITE-STANDARD single-h1, 2026-09-05)
+    let htmlContent = marked(content.replace(/^\s*#\s+[^\n]*\n/, ''));
     // Wrap tables in scrollable container for mobile
     htmlContent = htmlContent.replace(/<table>/g, '<div class="table-scroll"><table>').replace(/<\/table>/g, '</table></div>');
     const readTime = calculateReadTime(content);
