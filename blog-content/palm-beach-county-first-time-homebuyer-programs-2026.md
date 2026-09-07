@@ -1,4 +1,6 @@
 ---
+seo_title: "First-Time Homebuyer Programs in Palm Beach County"
+seo_description: "Explore first-time homebuyer assistance programs discussed in this Palm Beach County guide, including eligibility, application steps and funding considerations."
 title: "First-Time Homebuyer Programs in Palm Beach County: Up to $100K in Help (2026)"
 description: "Palm Beach County offers up to $100K in down payment help for first-time buyers. Complete guide to SHIP, Homebuyer Match, Hometown Heroes, and HFA programs."
 keywords: "palm beach county first time home buyer programs 2026, down payment assistance palm beach county, SHIP program palm beach county, homebuyer match pilot program, florida hometown heroes palm beach county"

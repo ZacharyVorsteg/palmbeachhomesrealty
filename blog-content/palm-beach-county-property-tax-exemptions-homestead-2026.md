@@ -1,4 +1,6 @@
 ---
+seo_title: "Palm Beach County Homestead Exemption Guide 2026"
+seo_description: "Explore Florida homestead exemptions, Save Our Homes and portability, with Palm Beach County application considerations and questions for the property appraiser."
 title: "Palm Beach County Homestead Exemption Guide 2026"
 description: "How Florida's homestead exemption, Save Our Homes cap, senior exemptions, and portability reduce your Palm Beach County property tax in 2026."
 keywords: "Palm Beach County property tax exemptions, Florida homestead exemption 2026, Save Our Homes cap 2026, Palm Beach County senior exemption, Florida portability property tax, pbcpao exemptions"

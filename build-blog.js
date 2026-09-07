@@ -56,14 +56,6 @@ function calculateReadTime(content) {
   return minutes <= 1 ? '1 min' : `${minutes} min`;
 }
 
-// Utility: Shorten title to fit within 65 chars
-function shortenTitle(title, maxLength = 65) {
-  if (title.length <= maxLength) return title;
-  const truncated = title.substring(0, maxLength);
-  const lastSpace = truncated.lastIndexOf(' ');
-  return lastSpace > 0 ? truncated.substring(0, lastSpace) : truncated;
-}
-
 // Utility: Get related articles
 function getRelatedArticles(slug, pillar, articles) {
   return articles
@@ -107,7 +99,8 @@ function build() {
 
     articles.push({
       title: meta.title,
-      description: meta.description || '',
+      seoTitle: meta.seo_title || meta.title,
+      description: meta.seo_description || meta.description || '',
       keywords: meta.keywords || '',
       slug,
       date: meta.date,
@@ -146,8 +139,9 @@ function build() {
       )
       .join('');
 
-    const displayTitle = shortenTitle(article.title);
+    const displayTitle = article.title;
     let html = template
+      .replace(/\{\{SEO_TITLE\}\}/g, article.seoTitle)
       .replace(/\{\{TITLE\}\}/g, displayTitle)
       .replace(/\{\{DESCRIPTION\}\}/g, article.description)
       .replace(/\{\{KEYWORDS\}\}/g, article.keywords)

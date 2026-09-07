@@ -248,7 +248,7 @@ img { max-width: 100%; height: auto; display: block; }
 
 /* ─── Hero ─── */
 .hero {
-    background: url('assets/hero-bg.jpg') center/cover no-repeat;
+    background: url('assets/hero-bg-1920.webp') center/cover no-repeat;
     color: var(--white);
     padding: 8rem 1.5rem 7rem;
     position: relative;
@@ -925,3 +925,23 @@ img { max-width: 100%; height: auto; display: block; }
     .promise-grid { grid-template-columns: 1fr; }
     .about-photo img { width: 240px; height: 240px; object-position: 50% 35%; }
 }
+
+/* Mobile header fit and persistent inquiry feedback. */
+.form-error{color:#922222;background:#fff1f1;border:1px solid #e7b8b8;border-radius:8px;padding:12px;margin-top:12px;line-height:1.5}
+.form-error[hidden]{display:none}
+.form-error a{font-weight:600;text-decoration:underline}
+@media(max-width:768px){
+  .header-cta{flex-direction:row}
+  .nav-toggle,.header-cta .phone-link{min-width:44px;min-height:44px;justify-content:center}
+}
+@media(max-width:480px){
+  .header-container{padding:0 16px;gap:8px}
+  .header-container .logo{flex:1;min-width:0;order:1}
+  .header-container .brand-name{font-size:1.05rem;line-height:1.25}
+  .header-cta{order:2;flex-shrink:0}
+  .header-cta .btn-header{display:none}
+  .nav-toggle{order:3;flex-shrink:0}
+}
+/* Long contact addresses must wrap instead of widening the phone grid. */
+.contact-grid > *{min-width:0}
+.contact-detail a{overflow-wrap:anywhere;min-width:0}

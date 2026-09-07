@@ -1,4 +1,6 @@
 ---
+seo_title: "Buying a Condo in Palm Beach County: 2026 Guide"
+seo_description: "Prepare for a Palm Beach County condo purchase with questions about inspections, association fees, reserves and documents to review before closing."
 title: "Buying a Condo in Palm Beach County: A 2026 Guide"
 description: "SIRS inspections, rising HOA fees, and reserve mandates are reshaping PBC's condo market. What every buyer must check before closing in 2026."
 keywords: "buying a condo in palm beach county, palm beach county condo guide 2026, SIRS milestone inspection condo, florida condo reserve funding, condo HOA fees palm beach county"

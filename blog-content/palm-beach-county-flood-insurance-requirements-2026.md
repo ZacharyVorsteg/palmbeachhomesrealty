@@ -1,4 +1,6 @@
 ---
+seo_title: "Palm Beach County Flood Insurance: 2026 Buyer Guide"
+seo_description: "Review flood insurance considerations when buying a Palm Beach County home, including flood zones, coverage requirements and questions for your insurer."
 title: "Palm Beach County Flood Insurance Requirements 2026"
 description: "The January 2026 Citizens mandate, updated FEMA flood maps, and new seller disclosure rules are reshaping what it costs to own a home in Palm Beach County. Here's what you need to know — and how to reduce your premium."
 keywords: "palm beach county flood insurance, flood insurance requirements 2026, citizens property insurance flood mandate, FEMA flood maps palm beach county, florida flood insurance cost"
