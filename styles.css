@@ -321,7 +321,7 @@ img { max-width: 100%; height: auto; display: block; }
 .hero-cta { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
 .btn-gold {
     background: var(--gold);
-    color: var(--white);
+    color: var(--navy-950);
     padding: 0.85rem 2rem;
     border-radius: var(--radius);
     font-weight: 600;
@@ -335,7 +335,7 @@ img { max-width: 100%; height: auto; display: block; }
     font-family: inherit;
 }
 .btn-gold { box-shadow: 0 4px 16px rgba(197,162,85,0.25); }
-.btn-gold:hover { background: var(--gold-hover); transform: translateY(-1px); box-shadow: 0 8px 28px rgba(197,162,85,0.4); }
+.btn-gold:hover { background: var(--gold-400); transform: translateY(-1px); box-shadow: 0 8px 28px rgba(197,162,85,0.4); }
 .btn-outline {
     background: transparent;
     color: var(--white);
@@ -800,7 +800,7 @@ img { max-width: 100%; height: auto; display: block; }
 .form-submit {
     width: 100%;
     background: var(--gold);
-    color: var(--white);
+    color: var(--navy-950);
     border: none;
     padding: 0.85rem;
     border-radius: var(--radius);
@@ -811,7 +811,7 @@ img { max-width: 100%; height: auto; display: block; }
     font-family: inherit;
     letter-spacing: 0.01em;
 }
-.form-submit:hover { background: var(--gold-hover); transform: translateY(-1px); }
+.form-submit:hover { background: var(--gold-400); transform: translateY(-1px); }
 .form-note {
     font-size: 0.78rem;
     color: var(--text-light);
@@ -880,10 +880,10 @@ img { max-width: 100%; height: auto; display: block; }
     flex-wrap: wrap;
     gap: 0.75rem;
     font-size: 0.78rem;
-    color: rgba(255,255,255,0.4);
+    color: rgba(255,255,255,0.8);
 }
 .footer-bottom a {
-    color: rgba(255,255,255,0.4);
+    color: rgba(255,255,255,0.8);
     transition: color var(--transition);
 }
 .footer-bottom a:hover { color: var(--white); }
