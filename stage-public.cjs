@@ -1,6 +1,6 @@
 const fs = require('node:fs');
 const path = require('node:path');
-const entries = ["404.html", "apple-touch-icon.png", "assets", "blog", "favicon.png", "googlea09d70eb2ac56a46.html", "index.html", "privacy.html", "robots.txt", "sitemap.xml", "styles.css", "terms.html"];
+const entries = ["cef0752662da2ce0eb360708188259db.txt", "404.html", "apple-touch-icon.png", "assets", "blog", "favicon.png", "googlea09d70eb2ac56a46.html", "index.html", "privacy.html", "robots.txt", "sitemap.xml", "styles.css", "terms.html"];
 const out = path.join(__dirname, 'public');
 fs.rmSync(out, { recursive: true, force: true });
 fs.mkdirSync(out, { recursive: true });
